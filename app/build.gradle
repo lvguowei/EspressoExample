@@ -37,4 +37,5 @@ dependencies {
         exclude module: 'support-annotations'
         exclude module: 'recyclerview-v7'
     }
+    compile 'org.hamcrest:hamcrest-core:1.3'
 }

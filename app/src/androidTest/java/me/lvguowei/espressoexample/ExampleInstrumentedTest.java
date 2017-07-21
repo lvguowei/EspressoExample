@@ -12,10 +12,7 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
@@ -29,8 +26,9 @@ public class ExampleInstrumentedTest {
             addTask("task " + i);
         }
 
-        onView(withId(R.id.task_list)).perform(RecyclerViewActions.scrollToPosition(10));
-        onView(withText("task 10")).check(matches(isDisplayed()));
+        // onView(withId(R.id.task_list)).perform(RecyclerViewActions.scrollToPosition(10));
+        // onView(withText("task 10")).check(matches(isDisplayed()));
+        onView(withId(R.id.task_list)).perform(RecyclerViewActions.scrollTo(Matchers.withTaskViewName("task 10")));
     }
 
     private void addTask(String name) {
